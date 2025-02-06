@@ -1,0 +1,90 @@
+#+TITLE: vchess
+#+AUTHOR: Vaishakh G K
+#+EMAIL: vaishakhgk2006@gmail.com
+
+vchess is a C-based chess engine that implements the Universal Chess Interface (UCI) for interaction with chess user interfaces.
+
+* Table of Contents :toc:
+- [[#features][Features]]
+- [[#technologies-used][Technologies Used]]
+- [[#contributing][Contributing]]
+- [[#license][License]]
+- [[#contact][Contact]]
+
+* Features
+**** UCI Compliance
+   - Fully compliant with the Universal Chess Interface (UCI) for communication with chess GUI software.
+
+**** Chess Engine
+   - A robust chess engine that can evaluate positions, generate legal moves, and suggest the best move.
+
+**** Move Generation
+   - Optimized move generation with support for all chess rules, including castling, en passant, and pawn promotion.
+
+**** Search Algorithm
+   - Utilizes alpha-beta pruning and various optimizations like transposition tables to search the game tree efficiently.
+
+**** Adjustable Difficulty
+   - Users can modify difficulty levels by adjusting parameters like search depth, time control, and more.
+
+* Technologies Used
+- C
+- UCI (Universal Chess Interface)
+- Alpha-Beta Pruning
+- Transposition Tables
+
+* Contributing
+Contributions are welcome! To contribute to this project:
+***** 1. Fork the project
+***** 2. Clone the fork
+#+begin_src bash
+git clone https://github.com/<username>/vchess.git
+#+end_src
+***** 3. Add Upstream
+#+begin_src bash
+git remote add upstream https://github.com/VAISHAKH-GK/vchess
+#+end_src
+***** 4. Create a new branch
+#+begin_src bash
+git checkout -b feature
+#+end_src
+***** 5. Make your changes
+***** 6. Commit your changes
+#+begin_src bash
+git commit -am "Add new feature"
+#+end_src
+***** 7. Update main
+#+begin_src bash
+git checkout main
+git pull upstream main
+#+end_src
+***** 8. Rebase to main
+#+begin_src bash
+git checkout feature
+git rebase main
+#+end_src
+***** 9. Push to the branch
+#+begin_src bash
+git push origin feature
+#+end_src
+***** 10. Create a new Pull Request
+
+* License
+[[file:LICENSE][The GPLv3 License (GPLv3)]]
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see [[https://www.gnu.org/licenses/gpl-3.0][GPLv3]].
+
+* Contact
+- Email: [[mailto:vaishakhgk2006@gmail.com][vaishakhgk2006@gmail.com]]
+- Website: [[https://vaishakhgk.com][Vaishakh GK]]
+- Github: [[https://github.com/VAISHAKH-GK/][VAISHAKH-GK]]
