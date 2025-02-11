@@ -1,8 +1,8 @@
-#+TITLE: vchess
+#+TITLE: Enchessment
 #+AUTHOR: Vaishakh G K
 #+EMAIL: vaishakhgk2006@gmail.com
 
-vchess is a C-based chess engine that implements the Universal Chess Interface (UCI) for interaction with chess user interfaces.
+Enchessment is a C-based chess engine that implements the Universal Chess Interface (UCI) for interaction with chess user interfaces.
 
 * Table of Contents :toc:
 - [[#features][Features]]
@@ -38,11 +38,11 @@ Contributions are welcome! To contribute to this project:
 ***** 1. Fork the project
 ***** 2. Clone the fork
 #+begin_src bash
-git clone https://github.com/<username>/vchess.git
+git clone https://github.com/<username>/enchessment.git
 #+end_src
 ***** 3. Add Upstream
 #+begin_src bash
-git remote add upstream https://github.com/VAISHAKH-GK/vchess
+git remote add upstream https://github.com/VAISHAKH-GK/enchessment
 #+end_src
 ***** 4. Create a new branch
 #+begin_src bash

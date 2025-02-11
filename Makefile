@@ -1,7 +1,7 @@
 CC = gcc
 CFLAGS = -Iinclude
 SRC = src/main.c board/board.c
-BIN = bin/vchess
+BIN = bin/enchessment
 
 all: $(BIN)
 
