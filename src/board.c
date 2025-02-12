@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include "board/board.h"
-#include "piece/piece.h"
+#include "board/piece.h"
 
 char Board[BOARD_SIZE][BOARD_SIZE];
 

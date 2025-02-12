@@ -1,13 +1,14 @@
 CC = gcc
 CFLAGS = -Iinclude
-SRC = src/main.c board/board.c
+SRC_DIR = src
+SRCS = $(wildcard $(SRC_DIR)/*.c)
 BIN = bin/enchessment
 
 all: $(BIN)
 
-$(BIN): $(SRC)
+$(BIN):
 	@mkdir -p $(dir $(BIN))
-	$(CC) $(CFLAGS) -o $(BIN) $(SRC)
+	$(CC) $(CFLAGS) -o $(BIN) $(SRCS)
 
 run: all
 	@$(BIN)
