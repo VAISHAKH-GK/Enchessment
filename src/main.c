@@ -1,10 +1,8 @@
 #include <stdio.h>
-#include "board/board.h"
+#include "game/uci.h"
 
 int main() {
-
-  new_board();
-  print_board();
+  new_uci();
 
   return 0;
 }

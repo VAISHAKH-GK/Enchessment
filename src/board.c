@@ -4,7 +4,7 @@
 
 char Board[BOARD_SIZE][BOARD_SIZE];
 
-void new_board() {
+void reset_board() {
   char DefaultBoard[BOARD_SIZE][BOARD_SIZE] = {
       {W_ROOK, W_KNIGHT, W_BISHOP, W_QUEEN, W_KING, W_BISHOP, W_KNIGHT, W_ROOK},
       {W_PAWN, W_PAWN, W_PAWN, W_PAWN, W_PAWN, W_PAWN, W_PAWN, W_PAWN},

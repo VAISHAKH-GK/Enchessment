@@ -5,7 +5,7 @@
 
 extern char Board[BOARD_SIZE][BOARD_SIZE];
 
-void new_board();
+void reset_board();
 void print_board();
 
 #endif
