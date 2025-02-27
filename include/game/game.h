@@ -13,4 +13,6 @@ extern int fiftyMove;
 
 extern char turn;
 
+void new_game();
+
 #endif
