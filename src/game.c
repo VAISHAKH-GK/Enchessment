@@ -11,7 +11,7 @@ int fiftyMove;
 char turn;
 
 void new_game() {
-  reset_board();
+  default_board();
 
   whiteCastle = 0;
   blackCastle = 0;

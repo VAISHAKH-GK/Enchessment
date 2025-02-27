@@ -1,10 +1,11 @@
+#include <endian.h>
 #include <stdio.h>
 #include "board/board.h"
 #include "board/piece.h"
 
 char Board[BOARD_SIZE][BOARD_SIZE];
 
-void reset_board() {
+void default_board() {
   char DefaultBoard[BOARD_SIZE][BOARD_SIZE] = {
       {W_ROOK, W_KNIGHT, W_BISHOP, W_QUEEN, W_KING, W_BISHOP, W_KNIGHT, W_ROOK},
       {W_PAWN, W_PAWN, W_PAWN, W_PAWN, W_PAWN, W_PAWN, W_PAWN, W_PAWN},
