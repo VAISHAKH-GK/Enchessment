@@ -7,6 +7,8 @@ extern char Board[BOARD_SIZE][BOARD_SIZE];
 
 void default_board();
 void print_board();
-void make_move(char *move);
+
+int rank_index(char rank);
+int file_index(char file);
 
 #endif

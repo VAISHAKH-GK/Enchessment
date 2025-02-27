@@ -69,7 +69,10 @@ void print_board() {
   }
 }
 
+int rank_index(char rank) {
+  return rank - '1';
+}
 
-void make_move(char *move) {
-  printf("move is %s\n", move);
+int file_index(char file) {
+  return file - 'a';
 }
