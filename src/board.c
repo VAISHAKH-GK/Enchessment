@@ -68,3 +68,8 @@ void print_board() {
     printf("\n");
   }
 }
+
+
+void make_move(char *move) {
+  printf("move is %s\n", move);
+}

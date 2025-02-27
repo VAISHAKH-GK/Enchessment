@@ -2,6 +2,6 @@
 #define UCI_H
 
 void uci_loop();
-void uci_position(char*);
+void uci_position(char *pos);
 
 #endif

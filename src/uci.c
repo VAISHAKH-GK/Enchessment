@@ -1,9 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include "game/uci.h"
 #include "board/board.h"
 #include "game/game.h"
-#include "game/uci.h"
 
 void uci_loop() {
   char input[512];
@@ -16,7 +16,6 @@ void uci_loop() {
     input[strcspn(input, "\n")] = '\0';
 
     char *command = strtok(input, " ");
-    char *arg = strtok(NULL, " ");
 
     if (strcmp(command, "uci") == 0) {
       printf("id name Enchessment 1.0\n");
@@ -27,6 +26,7 @@ void uci_loop() {
     } else if (strcmp(command, "isready") == 0) {
       printf("readyok\n");
     } else if (strcmp(command, "position") == 0) {
+      char *arg = strtok(NULL, "");
       uci_position(arg);
     } else if (strcmp(input, "go") == 0) {
       printf("bestmove e2e4\n");
@@ -37,9 +37,16 @@ void uci_loop() {
 }
 
 void uci_position(char *pos) {
+  pos = strtok(pos, " ");
   if (strcmp(pos, "startpos") == 0) {
     default_board();
-  } else {
-    printf("%s\n", pos);
+    char *next = strtok(NULL, " ");
+    if (strcmp(next, "moves") == 0) {
+      next = strtok(NULL, " ");
+      while (next) {
+        make_move(next);
+        next = strtok(NULL, " ");
+      }
+    }
   }
 }

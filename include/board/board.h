@@ -7,5 +7,6 @@ extern char Board[BOARD_SIZE][BOARD_SIZE];
 
 void default_board();
 void print_board();
+void make_move(char *move);
 
 #endif
