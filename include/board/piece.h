@@ -19,4 +19,7 @@
 
 #define EMPTY '_'
 
+int is_black(char piece);
+int is_white(char piece);
+
 #endif

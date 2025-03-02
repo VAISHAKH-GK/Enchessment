@@ -1,3 +1,4 @@
+#include <ctype.h>
 #include <endian.h>
 #include <stdio.h>
 #include "board/board.h"
@@ -79,4 +80,12 @@ int file_index(char file) {
 
 int is_inside(int row, int col) {
   return row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE;
+}
+
+int is_white(char piece) {
+    return isupper(piece);
+}
+
+int is_black(char piece) {
+    return islower(piece);
 }
