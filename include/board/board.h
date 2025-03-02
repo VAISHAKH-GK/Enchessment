@@ -11,4 +11,6 @@ void print_board();
 int rank_index(char rank);
 int file_index(char file);
 
+int is_inside(int row, int col);
+
 #endif

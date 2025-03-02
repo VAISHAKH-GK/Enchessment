@@ -76,3 +76,7 @@ int rank_index(char rank) {
 int file_index(char file) {
   return file - 'a';
 }
+
+int is_inside(int row, int col) {
+  return row >= 0 && row < BOARD_SIZE && col >= 0 && col < BOARD_SIZE;
+}

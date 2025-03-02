@@ -14,6 +14,4 @@ extern int fiftyMove;
 extern char turn;
 
 void new_game();
-void make_move(char *move);
-
 #endif

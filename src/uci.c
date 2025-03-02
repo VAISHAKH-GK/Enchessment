@@ -4,6 +4,7 @@
 #include "game/uci.h"
 #include "board/board.h"
 #include "game/game.h"
+#include "game/moves.h"
 
 void uci_loop() {
   char input[512];
@@ -29,7 +30,8 @@ void uci_loop() {
       char *arg = strtok(NULL, "");
       uci_position(arg);
     } else if (strcmp(input, "go") == 0) {
-      printf("bestmove e2e4\n");
+      generate_move();
+      /* printf("bestmove e2e4\n"); */
     } else if (strcmp(input, "quit") == 0) {
       break;
     }
@@ -40,6 +42,7 @@ void uci_position(char *pos) {
   pos = strtok(pos, " ");
   if (strcmp(pos, "startpos") == 0) {
     default_board();
+    turn = WHITE;
     char *next = strtok(NULL, " ");
     if (strcmp(next, "moves") == 0) {
       next = strtok(NULL, " ");
