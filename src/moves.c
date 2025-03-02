@@ -129,12 +129,33 @@ int generate_rook_moves(int row, int col, char moves[][6]) {
 }
 
 int generate_queen_moves(int row, int col, char moves[][6]) {
-    int count = 0;
+  int count = 0;
 
-    count += generate_rook_moves(row, col, moves + count);
-    count += generate_bishop_moves(row, col, moves + count);
+  count += generate_rook_moves(row, col, moves + count);
+  count += generate_bishop_moves(row, col, moves + count);
 
-    return count;
+  return count;
+}
+
+int generate_king_moves(int row, int col, char moves[][6]) {
+  int count = 0;
+  int king_moves[8][2] = {{1, 0}, {-1, 0}, {0, 1},  {0, -1},
+                          {1, 1}, {1, -1}, {-1, 1}, {-1, -1}};
+
+  for (int i = 0; i < 8; i++) {
+    int new_row = row + king_moves[i][0];
+    int new_col = col + king_moves[i][1];
+
+    if (is_inside(new_row, new_col) &&
+        (Board[new_row][new_col] == EMPTY ||
+         (turn == WHITE ? is_black(Board[new_row][new_col])
+                        : is_white(Board[new_row][new_col])))) {
+      sprintf(moves[count++], "%c%c%c%c", 'a' + col, '1' + row, 'a' + new_col,
+              '1' + new_row);
+    }
+  }
+
+  return count;
 }
 
 void white_move() {
@@ -160,6 +181,9 @@ void white_move() {
         move_count += generate_rook_moves(i, j, moves + move_count);
         break;
       case W_QUEEN:
+        move_count += generate_queen_moves(i, j, moves + move_count);
+        break;
+      case W_KING:
         move_count += generate_queen_moves(i, j, moves + move_count);
         break;
       }
@@ -198,6 +222,9 @@ void black_move() {
         move_count += generate_rook_moves(i, j, moves + move_count);
         break;
       case B_QUEEN:
+        move_count += generate_queen_moves(i, j, moves + move_count);
+        break;
+      case B_KING:
         move_count += generate_queen_moves(i, j, moves + move_count);
         break;
       }
