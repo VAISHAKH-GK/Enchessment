@@ -66,7 +66,26 @@ void white_move() {
 }
 
 void black_move() {
+  char b[BOARD_SIZE][BOARD_SIZE];
+  memcpy(b, Board, sizeof(b));
 
+  char moves[100][6];
+  int move_count = 0;
+
+  for (int i = 0; i < BOARD_SIZE; i++) {
+    for (int j = 0; j < BOARD_SIZE; j++) {
+      switch(b[i][j]){
+      case B_PAWN:
+        move_count += generate_pawn_moves(i, j, moves + move_count);
+        break;
+      }
+    }
+  }
+
+  if (move_count > 0) {
+    printf("bestmove %s\n", moves[1]);
+    make_move(moves[0]);
+  }
 }
 
 void generate_move() {
