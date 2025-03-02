@@ -184,7 +184,7 @@ void white_move() {
         move_count += generate_queen_moves(i, j, moves + move_count);
         break;
       case W_KING:
-        move_count += generate_queen_moves(i, j, moves + move_count);
+        move_count += generate_king_moves(i, j, moves + move_count);
         break;
       }
     }
@@ -225,7 +225,7 @@ void black_move() {
         move_count += generate_queen_moves(i, j, moves + move_count);
         break;
       case B_KING:
-        move_count += generate_queen_moves(i, j, moves + move_count);
+        move_count += generate_king_moves(i, j, moves + move_count);
         break;
       }
     }
