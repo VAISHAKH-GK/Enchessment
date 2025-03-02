@@ -100,6 +100,32 @@ int generate_bishop_moves(int row, int col, char moves[][6]) {
   return count;
 }
 
+int generate_rook_moves(int row, int col, char moves[][6]) {
+    int count = 0;
+    int directions[4][2] = {{1, 0}, {-1, 0}, {0, 1}, {0, -1}};
+
+    for (int i = 0; i < 4; i++) {
+        int new_row = row + directions[i][0];
+        int new_col = col + directions[i][1];
+
+        while (is_inside(new_row, new_col)) {
+            if (Board[new_row][new_col] == EMPTY) {
+                sprintf(moves[count++], "%c%c%c%c", 'a' + col, '1' + row, 'a' + new_col, '1' + new_row);
+            } else if (turn == WHITE ? is_black(Board[new_row][new_col]) : is_white(Board[new_row][new_col])) {
+                sprintf(moves[count++], "%c%c%c%c", 'a' + col, '1' + row, 'a' + new_col, '1' + new_row);
+                break;
+            } else {
+                break;
+            }
+
+            new_row += directions[i][0];
+            new_col += directions[i][1];
+        }
+    }
+
+    return count;
+}
+
 void white_move() {
   char b[BOARD_SIZE][BOARD_SIZE];
   memcpy(b, Board, sizeof(b));
@@ -118,6 +144,9 @@ void white_move() {
         break;
       case W_BISHOP:
         move_count += generate_bishop_moves(i, j, moves + move_count);
+        break;
+      case W_ROOK:
+        move_count += generate_rook_moves(i, j, moves + move_count);
         break;
       }
     }
@@ -150,6 +179,9 @@ void black_move() {
         break;
       case B_BISHOP:
         move_count += generate_bishop_moves(i, j, moves + move_count);
+        break;
+      case B_ROOK:
+        move_count += generate_rook_moves(i, j, moves + move_count);
         break;
       }
     }
