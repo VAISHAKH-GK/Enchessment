@@ -90,8 +90,11 @@ void white_move() {
   }
 
   if (move_count > 0) {
-    printf("bestmove %s\n", moves[0]);
-    make_move(moves[0]);
+    srand(time(NULL));
+    int best_move = rand() % (move_count + 1);
+
+    printf("bestmove %s\n", moves[best_move]);
+    make_move(moves[best_move]);
   }
 }
 
@@ -116,8 +119,11 @@ void black_move() {
   }
 
   if (move_count > 0) {
-    printf("bestmove %s\n", moves[0]);
-    make_move(moves[0]);
+    srand(time(NULL));
+    int best_move = rand() % (move_count + 1);
+
+    printf("bestmove %s\n", moves[best_move]);
+    make_move(moves[best_move]);
   }
 }
 
