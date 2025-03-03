@@ -1,11 +1,11 @@
-#include "game/moves.h"
-#include "board/board.h"
-#include "board/piece.h"
-#include "game/game.h"
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include "game/moves.h"
+#include "board/board.h"
+#include "board/piece.h"
+#include "game/game.h"
 
 void make_move(char *move) {
   int from_file = file_index(move[0]);
@@ -43,6 +43,24 @@ int generate_pawn_moves(int row, int col, char moves[][6]) {
         Board[new_row][col] == EMPTY) {
       sprintf(moves[count++], "%c%c%c%c", 'a' + col, '1' + row, 'a' + col,
               '1' + second_row);
+    }
+  }
+
+  if (turn == WHITE) {
+    if (is_inside(new_row, col - 1) && is_black(Board[new_row][ col - 1])) {
+      sprintf(moves[count++], "%c%c%c%c", 'a' + col, '1' + row, 'a' + col - 1,
+              '1' + new_row);
+    } else if (is_inside(new_row, col + 1) && is_black(Board[new_row][ col + 1])) {
+      sprintf(moves[count++], "%c%c%c%c", 'a' + col, '1' + row, 'a' + col + 1,
+              '1' + new_row);
+    }
+  } else {
+    if (is_inside(new_row, col - 1) && is_white(Board[new_row][ col - 1])) {
+      sprintf(moves[count++], "%c%c%c%c", 'a' + col, '1' + row, 'a' + col - 1,
+              '1' + new_row);
+    } else if (is_inside(new_row, col + 1) && is_white(Board[new_row][ col + 1])) {
+      sprintf(moves[count++], "%c%c%c%c", 'a' + col, '1' + row, 'a' + col + 1,
+              '1' + new_row);
     }
   }
 
